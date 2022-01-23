@@ -1,0 +1,8 @@
+.boundingBox{
+	box-shadow: 0 0 0 3px #149df2 inset; /*inset is shorthand for margin*/
+	position: absolute;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	cursor: pointer;
+}
