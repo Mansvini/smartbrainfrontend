@@ -1,1 +1,2 @@
 # smartbrainfrontend
+Made with React
