@@ -1,4 +1,5 @@
 import React from 'react';
+import './Signin.css';
 
 class Signin extends React.Component{
 	constructor(props){
@@ -17,8 +18,12 @@ class Signin extends React.Component{
 		this.setState({signInPassword:event.target.value});
 	}
 
+	saveAuthTokenInSession = (token) =>{
+		window.sessionStorage.setItem('token', token);
+	}
+
 	onSubmitSignIn=()=>{
-		fetch('https://hidden-brushlands-00668.herokuapp.com/signin',{
+		fetch('http://ec2-3-0-103-12.ap-southeast-1.compute.amazonaws.com/signin',{
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
@@ -28,10 +33,10 @@ class Signin extends React.Component{
 		})
 		.then(response=>response.json())
 		.then(data=>{
-			if(data.id){
-				this.props.loadUser(data); 
-				this.props.onRouteChange('home');
-			}
+			if(data.userId && data.success==='true'){
+				this.saveAuthTokenInSession(data.token);
+				this.props.fetchUserFromId(data.token, data.userId);
+			  }
 		})
 	}
 
@@ -46,7 +51,7 @@ class Signin extends React.Component{
 					      <div className="mt3">
 					        <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
 					        <input 
-					        	className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
+					        	className="pa2 input-reset ba bg-transparent hover-black hover-white w-100" 
 					        	type="email" 
 					        	name="email-address"  
 					        	id="email-address"
@@ -56,7 +61,7 @@ class Signin extends React.Component{
 					      <div className="mv3">
 					        <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
 					        <input 
-					        	className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
+					        	className="b pa2 input-reset ba bg-transparent hover-black hover-white w-100" 
 					        	type="password" 
 					        	name="password"  
 					        	id="password"

@@ -1,4 +1,5 @@
 import React from 'react';
+import './Register.css';
 
 class Register extends React.Component{
 	constructor(props){
@@ -22,8 +23,12 @@ class Register extends React.Component{
 		this.setState({password:event.target.value});
 	}
 
+	saveAuthTokenInSession = (token) =>{
+		window.sessionStorage.setItem('token', token);
+	}
+
 	onSubmitRegister=()=>{
-		fetch('https://hidden-brushlands-00668.herokuapp.com/register',{
+		fetch('http://ec2-3-0-103-12.ap-southeast-1.compute.amazonaws.com/register',{
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
@@ -33,16 +38,15 @@ class Register extends React.Component{
 			})
 		})
 		.then(response=>response.json())
-		.then(user=>{
-			if(user.id){
-				this.props.loadUser(user);
-				this.props.onRouteChange('home');
+		.then(data=>{
+			if(data.userId && data.success==='true'){
+				this.saveAuthTokenInSession(data.token);
+				this.props.fetchUserFromId(data.token, data.userId);
 			}
 		})
 	}
 
 	render(){
-		const {onRouteChange}=this.props;
 		return(
 			<article className="br3 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
 				<main className="pa4 black-80">
@@ -52,7 +56,7 @@ class Register extends React.Component{
 					      <div className="mt3">
 					        <label className="db fw6 lh-copy f6" htmlFor="name">Name</label>
 					        <input 
-					        	className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
+					        	className="pa2 input-reset ba bg-transparent hover-black hover-white w-100" 
 					        	type="text" 
 					        	name="name"
 					        	id="name"
@@ -62,7 +66,7 @@ class Register extends React.Component{
 					      <div className="mt3">
 					        <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
 					        <input 
-					        	className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
+					        	className="pa2 input-reset ba bg-transparent hover-black hover-white w-100" 
 					        	type="email"
 					        	name="email-address"  
 					        	id="email-address"
@@ -72,7 +76,7 @@ class Register extends React.Component{
 					      <div className="mv3">
 					        <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
 					        <input 
-					        	className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
+					        	className="b pa2 input-reset ba bg-transparent hover-black hover-white w-100" 
 					        	type="password" 
 					        	name="password"
 					        	id="password"
