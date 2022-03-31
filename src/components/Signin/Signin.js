@@ -23,7 +23,7 @@ class Signin extends React.Component{
 	}
 
 	onSubmitSignIn=()=>{
-		fetch('http://ec2-3-0-103-12.ap-southeast-1.compute.amazonaws.com/signin',{
+		fetch('https://organicblis.com/node/signin',{
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({

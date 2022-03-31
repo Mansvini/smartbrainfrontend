@@ -22,7 +22,7 @@ class ProfileIcon extends React.Component {
 
     onSignOut=()=>{
         const token=window.sessionStorage.getItem('token');
-        fetch('http://ec2-3-0-103-12.ap-southeast-1.compute.amazonaws.com/signout',{
+        fetch('https://organicblis.com/node/signout',{
             method: 'put',
             headers: {
             'Content-Type': 'application/json',

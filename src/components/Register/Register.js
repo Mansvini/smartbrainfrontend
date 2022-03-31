@@ -28,7 +28,7 @@ class Register extends React.Component{
 	}
 
 	onSubmitRegister=()=>{
-		fetch('http://ec2-3-0-103-12.ap-southeast-1.compute.amazonaws.com/register',{
+		fetch('https://organicblis.com/node/register',{
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({

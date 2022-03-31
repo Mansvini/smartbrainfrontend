@@ -116,7 +116,7 @@ class App extends Component {
   componentDidMount(){
     const token= window.sessionStorage.getItem('token');
     if (token){
-      fetch('http://ec2-3-0-103-12.ap-southeast-1.compute.amazonaws.com/signin', {
+      fetch('https://organicblis.com/node/signin', {
         method: 'post',
         headers: {
           'Content-Type': 'application/json',
@@ -134,7 +134,7 @@ class App extends Component {
   }
 
   fetchUserFromId=(token, id)=>{
-    fetch(`http://ec2-3-0-103-12.ap-southeast-1.compute.amazonaws.com/profile/${id}`,{
+    fetch(`https://organicblis.com/profile/${id}`,{
       method: 'get',
       headers: {
       'Content-Type': 'application/json',
@@ -156,7 +156,7 @@ class App extends Component {
 
   onPictureSubmit=()=>{
     this.setState({imageUrl:this.state.input});
-    fetch('http://ec2-3-0-103-12.ap-southeast-1.compute.amazonaws.com/imageurl',{
+    fetch('https://organicblis.com/node/imageurl',{
           method:'post',
           headers: {'Content-Type': 'application/json',
                     'Authorization': window.sessionStorage.getItem('token')
@@ -168,7 +168,7 @@ class App extends Component {
       .then(response=>response.json())
         .then(response=> {
           if(response){
-          fetch('http://ec2-3-0-103-12.ap-southeast-1.compute.amazonaws.com/image',{
+          fetch('https://organicblis.com/node/image',{
             method:'put',
             headers: {'Content-Type': 'application/json',
                       'Authorization': window.sessionStorage.getItem('token')
