@@ -9,6 +9,7 @@ import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import Particles from 'react-tsparticles';
 import Modal from './components/Modal/Modal';
 import Profile from './components/Profile/Profile';
+import './gh-fork-ribbon.css';
 import './App.css';
 
 const particlesOptions={
@@ -292,6 +293,7 @@ class App extends Component {
             />
           )
         }
+        <a class="github-fork-ribbon right-bottom fixed" href="https://github.com/Mansvini/smartbrainfrontend" target="_blank" rel="noreferrer" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
       </div>
     );
   }
