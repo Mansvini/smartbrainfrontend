@@ -293,7 +293,7 @@ class App extends Component {
             />
           )
         }
-        <a class="github-fork-ribbon right-bottom fixed" href="https://github.com/Mansvini/smartbrainfrontend" target="_blank" rel="noreferrer" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
+        <a className="github-fork-ribbon right-bottom fixed" href="https://github.com/Mansvini/smartbrainfrontend" target="_blank" rel="noreferrer" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
       </div>
     );
   }
