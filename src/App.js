@@ -135,7 +135,7 @@ class App extends Component {
   }
 
   fetchUserFromId=(token, id)=>{
-    fetch(`https://organicblis.com/profile/${id}`,{
+    fetch(`https://organicblis.com/node/profile/${id}`,{
       method: 'get',
       headers: {
       'Content-Type': 'application/json',
