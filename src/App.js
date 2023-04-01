@@ -117,7 +117,7 @@ class App extends Component {
   componentDidMount(){
     const token= window.sessionStorage.getItem('token');
     if (token){
-      fetch('https://organicblis.com/node/signin', {
+      fetch('https://mansvini.co.in/node/signin', {
         method: 'post',
         headers: {
           'Content-Type': 'application/json',
@@ -135,7 +135,7 @@ class App extends Component {
   }
 
   fetchUserFromId=(token, id)=>{
-    fetch(`https://organicblis.com/node/profile/${id}`,{
+    fetch(`https://mansvini.co.in/node/profile/${id}`,{
       method: 'get',
       headers: {
       'Content-Type': 'application/json',
@@ -157,7 +157,7 @@ class App extends Component {
 
   onPictureSubmit=()=>{
     this.setState({imageUrl:this.state.input});
-    fetch('https://organicblis.com/node/imageurl',{
+    fetch('https://mansvini.co.in/node/imageurl',{
           method:'post',
           headers: {'Content-Type': 'application/json',
                     'Authorization': window.sessionStorage.getItem('token')
@@ -169,7 +169,7 @@ class App extends Component {
       .then(response=>response.json())
         .then(response=> {
           if(response){
-          fetch('https://organicblis.com/node/image',{
+          fetch('https://mansvini.co.in/node/image',{
             method:'put',
             headers: {'Content-Type': 'application/json',
                       'Authorization': window.sessionStorage.getItem('token')
