@@ -28,7 +28,7 @@ class Profile extends React.Component{
     }
 
     onProfileUpdate=(data)=>{
-        fetch(`https://mansvini.co.in/node/profile/${this.props.user.id}`, {
+        fetch(`https://mansvini.co.in/profile/${this.props.user.id}`, {
             method:'post',
             headers: {'Content-Type': 'application/json',
                       'Authorization': window.sessionStorage.getItem('token')

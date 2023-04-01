@@ -22,7 +22,7 @@ class ProfileIcon extends React.Component {
 
     onSignOut=()=>{
         const token=window.sessionStorage.getItem('token');
-        fetch('https://mansvini.co.in/node/signout',{
+        fetch('https://mansvini.co.in/signout',{
             method: 'put',
             headers: {
             'Content-Type': 'application/json',

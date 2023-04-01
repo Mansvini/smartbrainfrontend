@@ -23,7 +23,7 @@ class Signin extends React.Component{
 	}
 
 	onSubmitSignIn=()=>{
-		fetch('https://mansvini.co.in/node/signin',{
+		fetch('https://mansvini.co.in/signin',{
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({

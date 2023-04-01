@@ -117,7 +117,7 @@ class App extends Component {
   componentDidMount(){
     const token= window.sessionStorage.getItem('token');
     if (token){
-      fetch('https://mansvini.co.in/node/signin', {
+      fetch('https://mansvini.co.in/signin', {
         method: 'post',
         headers: {
           'Content-Type': 'application/json',
@@ -135,7 +135,7 @@ class App extends Component {
   }
 
   fetchUserFromId=(token, id)=>{
-    fetch(`https://mansvini.co.in/node/profile/${id}`,{
+    fetch(`https://mansvini.co.in/profile/${id}`,{
       method: 'get',
       headers: {
       'Content-Type': 'application/json',
@@ -157,7 +157,7 @@ class App extends Component {
 
   onPictureSubmit=()=>{
     this.setState({imageUrl:this.state.input});
-    fetch('https://mansvini.co.in/node/imageurl',{
+    fetch('https://mansvini.co.in/imageurl',{
           method:'post',
           headers: {'Content-Type': 'application/json',
                     'Authorization': window.sessionStorage.getItem('token')
@@ -169,7 +169,7 @@ class App extends Component {
       .then(response=>response.json())
         .then(response=> {
           if(response){
-          fetch('https://mansvini.co.in/node/image',{
+          fetch('https://mansvini.co.in/image',{
             method:'put',
             headers: {'Content-Type': 'application/json',
                       'Authorization': window.sessionStorage.getItem('token')
