@@ -5,6 +5,7 @@ import {
     DropdownMenu,
     DropdownItem
 } from 'reactstrap';
+import icon from './UserIcon.png';
 
 class ProfileIcon extends React.Component {
     constructor(props){
@@ -42,7 +43,7 @@ class ProfileIcon extends React.Component {
                             tag="span"
                         >
                             <img
-                                src="http://tachyons.io/img/logo.jpg"
+                                src={icon}
                                 className="br-100 ba h3 w3 dib" alt="avatar"/>
                         </DropdownToggle>
                         <DropdownMenu 

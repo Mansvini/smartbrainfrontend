@@ -1,5 +1,6 @@
 import React from 'react';
 import './Profile.css';
+import icon from './UserIcon.png'
 
 class Profile extends React.Component{
     constructor(props){
@@ -51,7 +52,7 @@ class Profile extends React.Component{
                 <article className="br3 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center bg-white">
                     <main className="pa4 black-80 w-80">
                         <img
-                            src="http://tachyons.io/img/logo.jpg"
+                            src={icon}
                             className="h3 w3 dib" alt="avatar"/>
                         <h1>{this.state.name}</h1>
                         <h4>{`Images submitted: ${user.entries}`}</h4>
